@@ -4,12 +4,12 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
-
-// hi hehe :)
+const { Game } = require('./server_src/game.js');
 
 const PORT = 3000;
 
 function main() {
+  initGame();
   initHttp();
   initSocket();
   listen();
@@ -28,9 +28,16 @@ function initSocket() {
 }
 
 function initHttp() {
+  app.use(express.static(__dirname + '/public'));
+
   app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
   });
+}
+
+function initGame() {
+  Game.init();
+  Game.start();
 }
 
 function listen() {
@@ -39,6 +46,6 @@ function listen() {
   });
 }
 
-
+main();
 
 

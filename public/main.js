@@ -1,8 +1,8 @@
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext('2d');
+import * as THREE from 'three';
+import { Game } from './src/game.js';
+import { Map } from './src/map.js';
+import { Net } from './src/net.js';
 
-function main() {
-    // ...
+window.onload = () => {
+    Game.start();
 }
-
-main();
