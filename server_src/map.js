@@ -1,5 +1,5 @@
 class Map {
-    
+
     constructor() {
         this.regions = {}
     }
@@ -35,20 +35,19 @@ class Map {
 }
 
 class HeightFlag {
-    constructor( height, radius, feather) {
+    constructor(height, radius, feather) {
         [
             this.height,
             this.radius,
             this.feather
         ] = [
-            height,
-            radius,
-            feather
-        ];
+                height,
+                radius,
+                feather
+            ];
     }
 }
 class Region {
-
     constructor(heights = {}, colors = {}, textures = {}, objects = {}, floors, walls = {}, decorations = {}) {
         [
             this.heights,
@@ -59,21 +58,20 @@ class Region {
             this.walls,
             this.decorations
         ] = [
-            heights,
-            colors,
-            textures,
-            objects,
-            floors,
-            walls,
-            decorations
-        ];
-
+                heights,
+                colors,
+                textures,
+                objects,
+                floors,
+                walls,
+                decorations
+            ];
     }
 
     setFlagsExample() {
         this.heights = {
             // outer dict represents x position in the tile map
-            "-2": {
+            "2": {
                 // inner dict represents y position in the tile map
                 "3": {
                     // third level contains all the different flag types with their own respective attributes
@@ -85,25 +83,31 @@ class Region {
                     },
 
                     "color": {
-                        "r"
+                        "color": 0x00000000,
+                        "radius": 10,
+                        "feather": 5,
+                    },
+
+                    "texture": {
+
                     }
-                    
-                }
-            },
-            "0": {
-                "10": {
-                    "height": 2,
-                    "radius": 6,
-                    "feather": 4
+                },
+
+                "": {
+                    "": {
+                        "height": 2,
+                        "radius": 6,
+                        "feather": 4
+
+                    }
                 }
             }
         }
-
-        this.colors = 
     }
+
     setHeights(heightFlags) {
         this.heights = heightFlags;
-        
+
     }
 
     setHeightAt(x, y, height, radius, feather) {
@@ -117,6 +121,6 @@ class Region {
     setTextures(textureFlags) {
 
     }
-    
+
 }
 module.exports = { Map }
